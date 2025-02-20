@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quanti Cammelli Costerebbe Tua Madre?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff6a00, #ee0979);
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #inputContainer {
+            margin-bottom: 20px;
+        }
+        #motherName {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 250px;
+        }
+        #submitButton, .donate-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+        #submitButton:hover, .donate-button:hover {
+            background-color: #e84118;
+        }
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #adContainer {
+            margin: 20px 0;
+            background: #fff;
+            color: #000;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quanti Cammelli Costerebbe Tua Madre?</h1>
+<div id="inputContainer">
+    <input type="text" id="motherName" placeholder="Inserisci il nome di tua madre" />
+    <button id="submitButton">Scopri!</button>
+</div>
+<div id="result"></div>
+
+<div id="adContainer">
+    <h3>Pubblicità</h3>
+    <p>Questo spazio è riservato per gli annunci. (Simulato)</p>
+    <!-- Inserisci qui il codice per Google AdSense -->
+</div>
+
+<div>
+    <h3>Supporta il gioco con una donazione!</h3>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_donations">
+        <input type="hidden" name="business" value="veroniquecasoria88@gmail.com">
+        <input type="hidden" name="item_name" value="Supporto Gioco">
+        <input type="hidden" name="currency_code" value="EUR">
+        <input type="submit" value="Donare" class="donate-button">
+    </form>
+</div>
+
+<script>
+    const submitButton = document.getElementById("submitButton");
+    const motherNameInput = document.getElementById("motherName");
+    const resultDisplay = document.getElementById("result");
+
+    submitButton.addEventListener("click", () => {
+        const motherName = motherNameInput.value.trim();
+        if (motherName) {
+            const cammelli = Math.floor(Math.random() * 100) + 1; // Numero casuale tra 1 e 100
+            resultDisplay.innerText = `${motherName} costerebbe ${cammelli} cammelli!`;
+        } else {
+            resultDisplay.innerText = "Per favore, inserisci un nome!";
+        }
+    });
+</script>
+
+</body>
+</html>
